@@ -1,0 +1,27 @@
+---
+import { FeatureCard as LitFeatureCard } from '../web-components/FeatureCard';
+
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const { icon, title, description } = Astro.props;
+---
+
+<div class="feature-card-wrapper">
+  <feature-card icon={icon} title={title} description={description}>
+    <slot />
+  </feature-card>
+</div>
+
+<script>
+  import 'casoon-ui-lib';
+</script>
+
+<style>
+  .feature-card-wrapper {
+    display: block;
+  }
+</style>
