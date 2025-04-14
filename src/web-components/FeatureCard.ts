@@ -1,43 +1,40 @@
-import { html } from 'lit';
+import { html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { BaseCard } from './BaseCard';
 import 'casoon-ui-lib';
 
 @customElement('feature-card')
 export class FeatureCard extends BaseCard {
-  static styles = [
-    BaseCard.styles,
-    css`
-      .feature-card {
-        display: flex;
-        flex-direction: column;
-        gap: var(--casoon-spacing);
-      }
-      
-      .feature-icon {
-        font-size: 2rem;
-        color: var(--casoon-primary);
-      }
-      
-      .feature-title {
-        font-size: 1.25rem;
-        font-weight: bold;
-        color: var(--casoon-text);
-      }
-      
-      .feature-description {
-        color: var(--casoon-text-secondary);
-      }
-    `
-  ];
+  static styles = css`
+    .feature-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--casoon-spacing);
+    }
+    
+    .feature-icon {
+      font-size: 2rem;
+      color: var(--casoon-primary);
+    }
+    
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: var(--casoon-text);
+    }
+    
+    .feature-description {
+      color: var(--casoon-text-secondary);
+    }
+  `;
 
-  @property()
+  @property({ type: String })
   icon = '';
 
-  @property()
+  @property({ type: String })
   title = '';
 
-  @property()
+  @property({ type: String })
   description = '';
 
   render() {

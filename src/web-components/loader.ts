@@ -12,31 +12,34 @@ function registerComponent(name: string, constructor: CustomElementConstructor) 
   }
 }
 
-// Alle Komponenten automatisch registrieren
-export function registerComponents() {
-  // Basis-Komponenten
-  registerComponent('base-card', BaseCard);
-  registerComponent('feature-card', FeatureCard);
-
-  // Dynamisches Laden zukünftiger Komponenten
-  const context = import.meta.glob('./**/*.ts', { eager: true });
-  
-  Object.entries(context).forEach(([path, module]) => {
-    if (path === './loader.ts' || path === './index.ts') return;
-    
-    const componentName = path
-      .replace('./', '')
-      .replace('.ts', '')
-      .split('/')
-      .map(part => part.replace(/([a-z0-9])([A-Z])/g, '$1-$2').toLowerCase())
-      .join('-');
-    
-    const componentClass = (module as any).default;
-    if (componentClass && typeof componentClass === 'function') {
-      registerComponent(componentName, componentClass);
-    }
-  });
+// Komponentennamen aus Dateinamen generieren
+function getComponentName(fileName: string): string {
+  return fileName
+    .replace('.ts', '')
+    .split('/')
+    .pop()!
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    .toLowerCase();
 }
 
-// Automatische Registrierung beim Import
-registerComponents(); 
+// Dynamisches Laden von Komponenten
+export async function loadComponent(componentPath: string): Promise<void> {
+  try {
+    const module = await import(componentPath);
+    const componentClass = module.default;
+    
+    if (componentClass && typeof componentClass === 'function') {
+      const componentName = getComponentName(componentPath);
+      registerComponent(componentName, componentClass);
+    }
+  } catch (error) {
+    console.warn(`Fehler beim Laden der Komponente ${componentPath}:`, error);
+  }
+}
+
+// Basis-Komponenten registrieren
+registerComponent('base-card', BaseCard);
+registerComponent('feature-card', FeatureCard);
+
+// Export für dynamisches Laden
+export { componentRegistry }; 

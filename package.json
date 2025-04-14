@@ -1,7 +1,7 @@
 {
   "name": "casoon-ui-components",
-  "version": "0.1.2-alpha.0",
-  "description": "UI-Komponenten-Bibliothek basierend auf Lit",
+  "version": "0.1.2-alpha.1",
+  "description": "UI-Komponenten-Bibliothek basierend auf Lit mit Astro-Wrappern",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "lit": "^3.0.0",
-    "casoon-ui-lib": "^1.0.0"
+    "casoon-ui-lib": "0.1.2-alpha.0"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
     "@types/node": "^20.0.0"
   }
-} 
+}
