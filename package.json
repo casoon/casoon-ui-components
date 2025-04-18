@@ -1,6 +1,6 @@
 {
   "name": "casoon-ui-components",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "UI-Komponenten-Bibliothek basierend auf Lit mit Astro-Wrappern",
   "type": "module",
   "main": "dist/index.js",
@@ -15,11 +15,19 @@
       "import": "./dist/web-components/index.js",
       "types": "./dist/web-components/index.d.ts"
     },
+    "./web-components/*": {
+      "import": "./dist/web-components/*.js",
+      "types": "./dist/web-components/*.d.ts"
+    },
     "./astro": {
       "import": "./dist/astro-components/index.js"
     },
     "./astro/*": {
       "import": "./dist/astro-components/*.js"
+    },
+    "./utils": {
+      "import": "./dist/utils/index.js",
+      "types": "./dist/utils/index.d.ts"
     },
     "./package.json": "./package.json"
   },

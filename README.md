@@ -10,16 +10,19 @@ npm install casoon-ui-components
 
 ## Verwendung
 
-### Einzelne Komponenten importieren
+### 1. In Bundler-basierten Projekten (Vite, Webpack, Rollup)
 
-Für optimale Paketgrößen können Sie Komponenten einzeln importieren:
+Komponenten können direkt über ihre Paketnamen importiert werden:
 
 ```js
-// Web-Komponente direkt importieren
+// Web-Komponente in einer JS/TS-Datei importieren
 import { BaseCard } from 'casoon-ui-components/web-components';
+
+// Nur eine einzelne Komponente importieren
+import { FeatureCard } from 'casoon-ui-components/web-components/FeatureCard';
 ```
 
-### Astro-Komponenten
+### 2. In Astro-Projekten
 
 ```astro
 ---
@@ -34,15 +37,39 @@ import { FeatureCard } from 'casoon-ui-components/astro/FeatureCard.astro';
 />
 ```
 
+### 3. Direkt im Browser (ESM)
+
+Für die direkte Verwendung im Browser müssen Sie den genauen relativen Pfad zur Komponente angeben oder einen Import-Map verwenden:
+
+```html
+<script type="importmap">
+{
+  "imports": {
+    "casoon-ui-components/": "/node_modules/casoon-ui-components/dist/",
+    "lit": "/node_modules/lit/index.js",
+    "lit/": "/node_modules/lit/"
+  }
+}
+</script>
+
+<script type="module">
+  // Mit Import Map
+  import { BaseCard } from 'casoon-ui-components/web-components/index.js';
+  
+  // Alternativ mit relativem Pfad
+  // import { BaseCard } from './node_modules/casoon-ui-components/dist/web-components/index.js';
+</script>
+```
+
 ## Verfügbare Komponenten
 
 ### Web-Komponenten
 
-| Name | Beschreibung | Import |
-|------|-------------|--------|
-| `BaseCard` | Basis-Kartenelement | `import { BaseCard } from 'casoon-ui-components/web-components';` |
-| `FeatureCard` | Erweiterte Karte für Features | `import { FeatureCard } from 'casoon-ui-components/web-components';` |
-| `Preloader` | Animierter Preloader | `import { Preloader } from 'casoon-ui-components/web-components';` |
+| Name | Beschreibung | Import (Bundler) | Import (Browser) |
+|------|-------------|--------|--------|
+| `BaseCard` | Basis-Kartenelement | `import { BaseCard } from 'casoon-ui-components/web-components';` | `import { BaseCard } from 'casoon-ui-components/web-components/index.js';` |
+| `FeatureCard` | Erweiterte Karte für Features | `import { FeatureCard } from 'casoon-ui-components/web-components';` | `import { FeatureCard } from 'casoon-ui-components/web-components/index.js';` |
+| `Preloader` | Animierter Preloader | `import { Preloader } from 'casoon-ui-components/web-components';` | `import { Preloader } from 'casoon-ui-components/web-components/index.js';` |
 
 ### Astro-Komponenten
 

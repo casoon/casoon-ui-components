@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casoon UI Components - Browser-Beispiel</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    .component-container {
+      margin: 2rem 0;
+      padding: 1rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+  </style>
+
+  <!-- Import Map definiert die Zuordnung von Modulnamen zu URLs -->
+  <script type="importmap">
+  {
+    "imports": {
+      "casoon-ui-components/": "/node_modules/casoon-ui-components/dist/",
+      "lit": "/node_modules/lit/index.js",
+      "lit/": "/node_modules/lit/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <h1>Casoon UI Components - Browser-Beispiel</h1>
+  
+  <p>
+    Dieses Beispiel zeigt, wie Casoon UI Components direkt im Browser verwendet werden können
+    mit nativen ES Modulen (ESM).
+  </p>
+
+  <h2>BaseCard Komponente</h2>
+  <div class="component-container" id="baseCardContainer">
+    <!-- Die Komponente wird hier vom JavaScript eingefügt -->
+  </div>
+
+  <h2>FeatureCard Komponente</h2>
+  <div class="component-container" id="featureCardContainer">
+    <!-- Die Komponente wird hier vom JavaScript eingefügt -->
+  </div>
+
+  <h2>Preloader Komponente</h2>
+  <div class="component-container">
+    <preloader></preloader>
+  </div>
+
+  <!-- Komponenten importieren und initialisieren -->
+  <script type="module">
+    // Version und Information anzeigen
+    import { version } from 'casoon-ui-components/index.js';
+    console.log(`Casoon UI Components Version: ${version}`);
+
+    // BaseCard importieren und verwenden
+    import { BaseCard } from 'casoon-ui-components/web-components/index.js';
+    
+    // Optional: Prüfen, ob die Komponente bereits registriert ist
+    if (!customElements.get('base-card')) {
+      customElements.define('base-card', BaseCard);
+    }
+    
+    const baseCardContainer = document.getElementById('baseCardContainer');
+    const baseCard = document.createElement('base-card');
+    baseCard.title = 'Meine Basiskarte';
+    baseCard.innerHTML = '<div>Das ist der Inhalt der Basiskarte</div>';
+    baseCardContainer.appendChild(baseCard);
+
+    // FeatureCard importieren und verwenden
+    import { FeatureCard } from 'casoon-ui-components/web-components/index.js';
+    
+    // Optional: Prüfen, ob die Komponente bereits registriert ist
+    if (!customElements.get('feature-card')) {
+      customElements.define('feature-card', FeatureCard);
+    }
+    
+    const featureCardContainer = document.getElementById('featureCardContainer');
+    const featureCard = document.createElement('feature-card');
+    featureCard.title = 'Mein Feature';
+    featureCard.description = 'Beschreibung des Features';
+    featureCard.icon = '🌟';
+    featureCardContainer.appendChild(featureCard);
+
+    // Preloader importieren (wird automatisch registriert)
+    import { Preloader } from 'casoon-ui-components/web-components/index.js';
+  </script>
+</body>
+</html> 

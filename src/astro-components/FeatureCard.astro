@@ -18,9 +18,13 @@ const { icon, title, description } = Astro.props;
   </feature-card>
 </div>
 
+<!-- 
+  Die Web-Komponente wird clientseitig registriert.
+  In Astro sollte dies mit client:load oder ähnlichem Direktiven erfolgen.
+-->
 <script>
-  // Die Web-Komponente wird clientseitig registriert
-  import '../web-components/FeatureCard';
+  // Expliziter Import mit relativem Pfad für bessere Browser-Kompatibilität
+  import '../web-components/FeatureCard.js';
 </script>
 
 <style>
