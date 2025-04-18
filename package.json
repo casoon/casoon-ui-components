@@ -1,22 +1,67 @@
 {
   "name": "casoon-ui-components",
-  "version": "0.1.2-alpha.1",
+  "version": "0.2.0",
   "description": "UI-Komponenten-Bibliothek basierend auf Lit mit Astro-Wrappern",
   "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./web-components": {
+      "import": "./dist/web-components/index.js",
+      "types": "./dist/web-components/index.d.ts"
+    },
+    "./astro": {
+      "import": "./dist/astro-components/index.js"
+    },
+    "./astro/*": {
+      "import": "./dist/astro-components/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node scripts/copy-astro.cjs",
     "dev": "tsc --watch",
+    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "lit": "^3.0.0",
     "casoon-ui-lib": "0.1.2-alpha.0"
+  },
+  "peerDependencies": {
+    "lit": "^3.0.0"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
-    "@types/node": "^20.0.0"
-  }
+    "@types/node": "^20.0.0",
+    "lit": "^3.0.0"
+  },
+  "keywords": [
+    "web-components",
+    "lit",
+    "astro",
+    "ui",
+    "components",
+    "design-system"
+  ],
+  "sideEffects": false,
+  "author": "CASOON",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casoon/casoon-ui-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/casoon/casoon-ui-components/issues"
+  },
+  "homepage": "https://github.com/casoon/casoon-ui-components#readme"
 }

@@ -39,7 +39,7 @@ export class BaseCard extends LitElement {
   }
 
   @eventOptions({ passive: true })
-  private handleClick(event: MouseEvent) {
+  private handleClick(_event: MouseEvent) {
     if (this.disabled) return;
     
     const detail: CardEventDetail = {
