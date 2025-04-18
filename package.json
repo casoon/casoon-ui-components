@@ -1,6 +1,6 @@
 {
   "name": "casoon-ui-components",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "UI-Komponenten-Bibliothek basierend auf Lit mit Astro-Wrappern",
   "type": "module",
   "main": "dist/index.js",
@@ -29,8 +29,9 @@
     "LICENSE"
   ],
   "scripts": {
+    "prebuild": "node scripts/build-version.cjs",
     "build": "tsc && node scripts/copy-astro.cjs",
-    "dev": "tsc --watch",
+    "dev": "npm run prebuild && tsc --watch",
     "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

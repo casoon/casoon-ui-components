@@ -1,5 +1,7 @@
 ---
-import { FeatureCard as LitFeatureCard } from '../web-components/FeatureCard';
+// Expliziter Import der Web-Komponente - wird nur in SSR verwendet
+// und dient hier nur zur Typprüfung
+import '../web-components/FeatureCard';
 
 interface Props {
   icon: string;
@@ -17,7 +19,8 @@ const { icon, title, description } = Astro.props;
 </div>
 
 <script>
-  import 'casoon-ui-lib';
+  // Die Web-Komponente wird clientseitig registriert
+  import '../web-components/FeatureCard';
 </script>
 
 <style>

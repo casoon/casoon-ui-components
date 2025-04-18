@@ -13,13 +13,16 @@
  * 
  * <FeatureCard icon="🌟" title="Mein Feature" description="Beschreibung" />
  * ```
+ * 
+ * WICHTIG: Importieren Sie auch die entsprechende Web-Komponente:
+ * ```js
+ * // Z.B. in einer client:load Komponente oder in Ihrer Layout-Datei
+ * import { FeatureCard } from 'casoon-ui-components/web-components';
+ * ```
  */
 
 // Dieser Export ist nur für TypeScript-Unterstützung und wird zur Laufzeit nicht verwendet
 export const components = [
   'FeatureCard.astro',
   // Weitere Komponenten hier auflisten
-];
-
-// Stellt sicher, dass die Web-Komponenten für die Astro-Komponenten geladen werden
-import '../web-components'; 
+]; 
