@@ -15,9 +15,6 @@ import { version } from './version';
 // Exportiere die Version
 export { version };
 
-// Exportiere KEINE Web-Komponenten automatisch,
-// sondern erlaube explizite Importe einzelner Komponenten
-
 // Re-exportiere Arten von Komponenten
 export const componentTypes = {
   WEB_COMPONENT: 'web-component',

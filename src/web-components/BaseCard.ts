@@ -7,7 +7,7 @@ interface CardEventDetail {
   timestamp: number;
 }
 
-@customElement('base-card')
+@customElement('ui-basecard')
 export class BaseCard extends LitElement {
   static styles = css`
     :host {

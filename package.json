@@ -1,6 +1,6 @@
 {
   "name": "casoon-ui-components",
-  "version": "0.2.3",
+  "version": "0.2.6",
   "description": "UI-Komponenten-Bibliothek basierend auf Lit mit Astro-Wrappern",
   "type": "module",
   "main": "dist/index.js",
@@ -47,12 +47,12 @@
     "casoon-ui-lib": "0.1.2-alpha.0"
   },
   "peerDependencies": {
-    "lit": "^3.0.0"
+    "lit": "3.3.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "@types/node": "^20.0.0",
-    "lit": "^3.0.0"
+    "typescript": "5.8.3",
+    "@types/node": "22.14.1",
+    "lit": "3.3.0"
   },
   "keywords": [
     "web-components",

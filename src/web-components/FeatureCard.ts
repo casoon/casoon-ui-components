@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { BaseCard } from './BaseCard';
 import 'casoon-ui-lib';
 
-@customElement('feature-card')
+@customElement('ui-featurecard')
 export class FeatureCard extends BaseCard {
   static styles = css`
     .feature-card {

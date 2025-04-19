@@ -3,7 +3,7 @@ import { customElement, property, state } from 'lit/decorators.js';
 import { shuffleFunctions } from '../utils/shuffle';
 import 'casoon-ui-lib';
 
-@customElement('casoonpreloader')
+@customElement('ui-preloader')
 export class Preloader extends LitElement {
   static styles = css`
     :host {
